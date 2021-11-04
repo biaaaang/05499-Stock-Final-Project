@@ -6,8 +6,8 @@ import { internalField } from "vega-lite";
 // // Load "data.csv" and log it to the console.
 
 var margin = {top: 10, right: 100, bottom: 30, left: 100},
-    width = 1450 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = 1200 - margin.left - margin.right,
+    height = 1000 - margin.top - margin.bottom;
 
 var svg = d3.select("#svg-div")
   .append("svg")
@@ -39,7 +39,7 @@ var newData = d3.tsv("static/SandP500.tsv").then(function(data1){
             "Date first added": d['Date first added'],
             "CIK": d['CIK'],
             "Founded": d['Founded'],
-            "Market Cap": d2['Market Cap']
+            "Market Cap": +d2['Market Cap']
           })
         }
       })
@@ -52,37 +52,88 @@ var newData = d3.tsv("static/SandP500.tsv").then(function(data1){
 
 var nested = newData.then(function(data){
   var new_data = []
-  new_data.push({
-    "GICS Sector": "Utilities",
-    values: []
-  })
+  for(let i = 0; i < data.length; i++){
+    var isIn = false;
+    for(let j = 0; j < new_data.length; j++){
+      if(new_data[j]["GICS Sector"] === data[i]["GICS Sector"]){
+        isIn = true;
+      }
+    }
+    if(!isIn){
+      new_data.push({
+      "GICS Sector": data[i]["GICS Sector"],
+      values: [],
+      "Total Cap": 0
+      })
+    }
+  }
+  
   for(let i = 0; i < new_data.length; i++){
     for(let j = 0; j < data.length; j++){
       if(data[j]["GICS Sector"] == new_data[i]["GICS Sector"]){
-        new_data[i].values.push({
-          "Symbol": data[j]['Symbol'],
-          "Security": data[j]['Security'],
-          "SEC filings": data[j]['SEC filings'],
-          "GICS Sector": data[j]['GICS Sector'],
-          "GICS Sub Industry": data[j]['GICS Sub Industry'],
-          "Headquarters Location": data[j]['Headquarters Location'],
-          "Date first added": data[j]['Date first added'],
-          "CIK": data[j]['CIK'],
-          "Founded": data[j]['Founded'],
-          "Market Cap": data[j]['Market Cap']
-        })
+        new_data[i].values.push(data[j])
+        new_data[i]["Total Cap"] =  new_data[i]["Total Cap"] + data[j]["Market Cap"]
       }
     }
   }
+
   return new_data
 })
 
+
 // Load Data
 nested.then((data) => {
+  var allGroup = [];
+  for(let i = 0; i < 11; i++){
+    allGroup.push(data[i]["GICS Sector"])
+  }
+
   console.log(data);
+  let hierarchy = d3.hierarchy(data, (node) => {
+    return node
+  }).sum((node) => {
+    return node["Total Cap"]
+  }).sort((node1, node2) => {
+    return node2['Market Cap'] - node1['Market Cap']
+  })
+
+
+  var color = d3.scaleOrdinal()
+    .domain(allGroup)
+    .range(d3.schemeSet2);
+
+  let createTreemap = d3.treemap()
+                  .size([1000, 600])
+
+  createTreemap(hierarchy)
+
+  let tiles = hierarchy.leaves()
+  console.log(tiles)
+
+  let block = svg.selectAll('g')
+                .data(tiles)
+                .enter()
+                .append('g')
+                .attr('transform', (Node) =>{
+                  return 'translate(' + Node['x0'] + ', ' + Node['y0'] + ')'
+                })
+
+  block.append('rect')
+        .attr('class', 'tile')
+        .attr('fill', (Node)=>{
+          return color(Node.data["GICS Sector"])
+        })
+        .attr('width', (Node) => {
+          return Node['x1'] - Node['x0']
+        })
+        .attr('height', (Node) => {
+          return Node['y1'] - Node['y0']
+        })
+
+
+
+
   
-
-
   // var nested = data.map(function(d) {
   //   var new_data = []
   //   for (var prop in d) {
