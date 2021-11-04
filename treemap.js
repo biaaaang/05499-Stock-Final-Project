@@ -109,6 +109,7 @@ nested.then((data) => {
 
   let tiles = hierarchy.leaves()
   console.log(tiles)
+  let tooltip = d3.select('#tooltip')
 
   let block = svg.selectAll('g')
                 .data(tiles)
@@ -129,6 +130,26 @@ nested.then((data) => {
         .attr('height', (Node) => {
           return Node['y1'] - Node['y0']
         })
+  
+  block.append('text')
+       .text((Node) => {
+         return Node.data["GICS Sector"]
+       })
+       .attr('x', 5)
+       .attr('y',30)
+
+
+       .on('mouseover', (Node) => {
+         tooltip.transition()
+                .style('visibility', 'visible')
+         tooltip.text(
+           Node.data['GICS Sector'] + ' : $' + Node.data['Total Cap']
+         )
+         })
+       .on('mouseout', (movie) => {
+         tooltip.transition()
+                .style('visibility', 'hidden')
+       })
 
 
 
