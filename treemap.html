@@ -31,18 +31,18 @@
     <select id="selectButton"></select>
     <br>
     
-    <label for="from-month">From</label>
-    <input type="month" id="from-month" value="1871-01" min="1871-01" max="2018-03">
+    <label for="on-date">From</label>
+    <input type="date" id="on-date" value="2020-12-31" min="2016-01-05" max="2020-12-31">
     <br>
-    
-    <label for="to-month">To</label>
-    <input type="month" id="to-month" value="2018-03" min="1871-01" max="2018-03">
-    <br>
+<!--     
+    <label for="to-date">To</label>
+    <input type="date" id="to-date" value="2020-12-31" min="2016-01-05" max="2020-12-31">
+    <br> -->
 
     <input type="button" id="update" value="Update">
 
     <svg id='legend' width = "500px">
-      <g>
+      <!-- <g>
       <rect class="legend-item" x="10" y="10" width="40" height="40" fill="orange"></rect>
       <text x="30" y="60" fill="white"
        transform = "rotate(90 30,60)">Communication Services</text>
@@ -96,7 +96,7 @@
         <rect class="legend-item" x="410" y="10" width="40" height="40" fill="black"></rect>
         <text x="430" y="60" fill="white" 
          transform = "rotate(90 430,60)">Energy</text>
-      </g>
+      </g> -->
 
       </svg>
     
@@ -104,7 +104,7 @@
     <div class="output" id="svg-div"></div>
     <svg id="canvas"></svg>
 
-    <script type="module" src="./treemap.js"></script>
+    <script type="module" src="./treemap2.js"></script>
     <div id='tooltip'></div>div>
     
   </body>
