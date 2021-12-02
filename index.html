@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S&P 500 Historical Stats</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <style>
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 110px;
+        height: 20px;
+        color: #777777;
+      }
+      input {
+        padding: 5px 10px;
+      }
+      a:link{color:white;}
+      a:visited{color:white;}
+    </style>
+  </head>
+  <body>
+    <h2>S&P500 Companies Closing Price</h2>
+    <div> <a href="../">Home</a></div>
+    <div id="d3-div"></div>
+    <div id="vega-div"></div>
+    <div class="output" id="text-div"></div>
+
+    <label for="inputSymbol">Input Symbol</label>
+    <input type="string" id="inputSymbol" value="A AAPL ZION">
+    <input type="button" id="updateSymbols" value="Update Symbols" onclick="reload();">
+    <br>
+
+    <label for="from-date">From</label>
+    <input type="date" id="from-date" value="2016-07-22" min="2016-07-22" max="2021-07-22">
+    <br>
+
+    <label for="to-date">To</label>
+    <input type="date" id="to-date" value="2021-07-22" min="2016-07-22" max="2021-07-22">
+
+    <input type="button" id="update" value="Update Time">
+
+    <div class="output" id="legend"></div>
+    <div class="output" id="data-div"></div>
+    <div class="output" id="svg-div"></div>
+    <div class="output" id="bar-div"></div>
+
+
+    
+    <!-- <script type="module" src="./eachStock.js"></script> -->
+
+    <script type="module" id="script" src="./eachStock.js"></script>
+
+  </body>
+
+</html>
