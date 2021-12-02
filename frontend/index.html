@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Build Your Portfolio</title>
+      <link rel="stylesheet" href="styles.css">
+      <style>
+        
+        a:link{color:black;}
+        a:visited{color:black;}
+      </style>
+   </head>
+   <body>
+      <div> <a href="../">Home</a></div>
+      <h2 style="text-align: center; font-family:verdana;">Build Your Portfolio</h2>
+      <p style="font-family:verdana;"> 
+            Use the portfolio tool to test your strategy!
+            Simply type in the STOCK TICKER (such as: AAPL, FB, GOOGL…) 
+            and the number of SHARES you want to add to your portfolio. We’ll show you what your portfolio looks like. 
+      </p>
+      <div style="padding: 32px; display: flex; flex-direction: column; align-items: center">
+         <div>
+            <input placeholder="ticker" id="symbol-input">
+            <input placeholder="shares" type="number" id="shares-input">
+            <button id="add-symbol-button">add</button>
+         </div>
+         <p style="font-family:verdana;"> 
+            PIE chart is a good way to visualize the component parts of your stock portfolio.   
+         </p>
+         <div>
+            <ul id="symbol-list">
+            </ul>
+         </div>
+         
+         <div style="margin-top: 32px;">
+            <canvas id="chart"></canvas>
+         </div>
+         <p style="font-family:verdana;"> 
+            Other than the traditional pie, we also provide you with a novel BUBBLE chart. It’s more fun and gives more information. Each stock is represented by a bubble where its x label tells you how much your share position has changed and its y label represents its percentage change in price. The size of the bubble is proportional to your current share position of the stock. Different colored bubbles represent different sectors. If you have a colorful bubble graph, be proud of yourself! Your portfolio probably has a high diversity score.    
+         </p>
+         <meta charset="utf-8">
+         <!-- Load d3.js -->
+         <script src="https://d3js.org/d3.v4.js"></script>
+         <!-- Load color scale -->
+         <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+         <!-- Create a div where the graph will take place -->
+         <div id="my_dataviz"></div>
+         <!-- A bit of CSS: change stroke color of circle on hover (white -> black) -->
+         <style>
+            .bubbles {
+            stroke-width: 1px;
+            stroke: black;
+            opacity: .8
+            }
+            .bubbles:hover {
+            stroke: black;
+            }
+            p {
+               display: block;
+               margin-top: 1em;
+               margin-bottom: 1em;
+               margin-left: 20em;
+               margin-right: 20em;
+            }
+         </style>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="index.js"></script>
+   </body>
+</html>
