@@ -1,38 +1,29 @@
 h2 {
   color: #ffffff;
   position: relative;
-  left: 550px;
-  top: 20px;
+ 
+}
+h5 {
+  color: #ffffff;
+  position: relative;
+}
+p {
+  color: #ffffff;
+  position: relative;
 }
 body {
   background: #0e3040;
 }
 #svg-div {
   background: #0e3040;
-  color: #ffffff;
+  color: #67809f;
 }
 
 #bar-div {
   background: #0e3040;
-  color: #fffff;
+  color: #67809f;
 }
 
 #from-month{
   margin-left:auto;
-}
-
-
-.tooltip {
-  position: absolute;
-  display: none;
-  width: auto;
-  height: auto;
-  background: none repeat scroll 0 0 white;
-  border: 0 none;
-  border-radius: 8px 8px 8px 8px;
-  box-shadow: -3px 3px 15px #888888;
-  color: black;
-  font: 12px sans-serif;
-  padding: 5px;
-  text-align: center;
 }
