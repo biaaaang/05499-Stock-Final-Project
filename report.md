@@ -45,6 +45,16 @@ The first three functions focus on users' rapid understanding of the stock marke
 Our last feature is a stock portfolio simulator. Users will be able to test out their long-term strategy here. This tool will show users the large potential for returns they stand to accrue from investing in the stock market over time.  They can type in the stock ticker name (such as: AAPL, FB, GOOGL…)  and the number of shares they want to add to their portfolio. We provide two different forms of visualization.  The doughnut chart is a good way to visualize the component parts of users’ stock portfolio.   We also provide users with a bubble chart.  It’s more fun and gives more information. Each stock is represented by a bubble, where its x label tells users how much their share position has changed for this stock, and its y label represents the percentage change. Size of the bubble is proportional to users’ current share position of the stock. Different colors of bubbles represent different sectors, which shows portfolio diversity.
 
 ## Results and Analysis
+Our visualization tool shows the effect in the following aspects:
+
+Information inventory: Based on the habits of stock users, based on the basic chart type of online chart, we select the interaction mode through two different time ranges: drop-down menu and drag bar. It can better help users quickly get the development of the stock market in the target time period.
+
+Visual correlation: In the tree chart, by associating the rise and fall values of stocks with colors and visually organizing the data according to industry sectors, users can infer the relationship between different sectors at time points through the comparison in the chart. For example, for a given social event (such as epidemic or election), the tree can be scanned to see the situation of all sections at the same time node, and infer the possible relationship. The use of color in the section helps to visually screen specific events (e.g. looking for red stocks related to price reduction). The use of the font size of the section also helps users to quickly lock specific important stocks.
+
+Data density: Compared with other stock visualization in the market, the data density in our visualization is low, so we do not have a lot of basic analysis of stocks in other software. But we give users choices through interaction. Through the mouse, users can selectively understand the time points they are interested in and the data of stocks on the basis of trend judgment.
+
+Workflow:  In the portfolio section, we provide users with an appropriate visualization of "add quick view" context linkage. The user can easily see the overall impact of his addition on his portfolio.
+
 Based on the historical data of the stock market we collected and the visualization tools we developed, we can well understand the stock situation at a certain stage or time node.
 
 For example, we want to analyze the changes in the stock market during the epidemic. We can use the first tool to select the time range to understand the overall changes of the stock market; Through the second tool, by pulling the timeline, we can clearly see the response of different plates to the epidemic at different stages of epidemic development in chronological order: in the tree view on January 31, 2020, each plate shows a large area of red, and then each plate shows an overall alternating rise and fall trend.
@@ -60,7 +70,6 @@ It reflects the evolution of time well. Although the line chart is very simple, 
 
 
 ## Discussion
-In the whole process of visual design and production, we have focused on the following issues:
 
 In the whole process of visual design and production, we have focused on the following issues:
 
