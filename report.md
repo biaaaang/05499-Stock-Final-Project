@@ -14,11 +14,24 @@ There are many famous chart platforms and software packages that can be used to 
 Metatrader is a lightweight and simple tool. Despite it has certain limitations and the fact that it is only being used in OTC markets it has become one of the most popular tools among retail active investors; this is probably due to the fact that it has been adopted by a large number of retail OTC brokers around the globe.
 Pro RealTime is another widely used tool among small and retail investors. Capabilities are functionalities are much better than Metatrader and it is used for regulated markets. It has more functionalities such as order book depth, volume profile and many analysis tools.
 
+Stock visualization for a long time, market professionals have relied on high-frequency charts of time series data, which plot time horizontally and stock price vertically (or other continuous variables). This can be more simply described as a "price chart". The attention of the financial industry to returns makes it more necessary for people to understand the current price of securities in the historical context. Therefore, compared with other types of visual representation, the use and familiarity of time series charts are much higher.
+
+Some market professionals, such as technical analysts, use many unique price charts, including open high low closing price chart, candle chart, dot chart and digital chart, Renko chart, market chart and so on. In addition, visual analysis has a long history. Chart and analysis functions are closely integrated, such as average, ratio and spread. The specific structure is abbreviated as MACD (moving average convergence / divergence), DMI (direction moving index), RSI (relative intensity index), etc. Therefore, in the professional stock market, there is an established agreement on the representation of time series. In this community, all users are familiar with the basic conventions, and the smaller user groups have mastered the professional knowledge of special charts and analysis.
 
 Although these software can well analyze recent events - or not if you plot a larger time period - it is usually a very bad tool to systematically observe what is happening over a longer period of time. Understanding what happened on any day two years ago is not as easy as people think, and it is likely to be impossible at all, because such chart software is designed to be used as a trading platform rather than a historical and strategic analysis platform. There are a large number of indicators, trend lines and auxiliary lines in the visualization of these software, but for users, the more complex is not the better.
 And for portfolio, there are also some visualization tools on the market.
 
 ## Methods
+### Requirment and design
+When evaluating the requirements, we believe that our design method needs to meet three visualization functions:
+
+1. Record the historical information of the stock market, that is, integrate and display the data with time tags in the database in chronological order through visualization.
+
+2. The processing and transmission of stock market information, that is, the visual analysis environment that promotes visual inference through the perception mechanism, such as the tree graph with color; And interactive functions such as time period selection, so that users can quickly judge without knowing the specific value.
+
+3. Combination of market data and personal portfolio. In the design, there should be a good visual channel to integrate the stock data in the database with the individual portfolio, rather than jumping back and forth between different charts.
+
+### Implementation and Examples
 The most representative stocks are probably the S&P 500, a list of stocks of the 500 largest corporations by market capitalization. Most of the big companies we know are in it, like amazon, google, Facebook, etc. We collected the prices of these stocks from the past five years. It is worth noticing that the stock market has been extremely volatile in these years because of many global events, like COVID 19. We hope this data can help users familiarize themselves with the overall trend. 
 
 The first function is rather straight forward, we generated a line graph and a bar graph that displays the daily change in the S&P 500 index. Users can specify the timeframe for which they wish to view the graphs. For example, they can choose the time during Olympics, or covid. The trend should be very clear and gives users an idea of the stock market’s overall trend.
