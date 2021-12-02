@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S&P 500 Historical Stats</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 110px;
+        height: 20px;
+        color: #777777;
+      }
+      input {
+        padding: 5px 10px;
+      }
+      a:link{color:white;}
+      a:visited{color:white;}
+      
+    </style>
+  </head>
+  <body>
+    <h2>S&P 500 Historical Treemap</h2>
+    <div> <a href="../">Home</a></div>
+    <div id="d3-div"></div>
+    <div id="vega-div"></div>
+    <div class="output" id="text-div" style = "width:1800; height:600"></div>
+    <label for="on-date">From</label>
+    <input type="date" id="on-date" value="2020-12-31" min="2016-01-05" max="2020-12-31">
+    <br>
+    
+    <div class="slidecontainer" style="width: 1000px;">
+      <input type="range" min="1" max="1260" value="1260" style="width:1000px;" class="slider" id="myRange">
+    </div>
+
+    <input type="button" id="update" value="Update">
+
+    <svg id="legend" width = "500px">
+      <g>
+      <rect class="legend-item" x="10" y="10" width="40" height="40" fill="#F63538"></rect>
+      <text x="20" y="65" fill="white">-3%</text>
+      </g>
+      <g>
+      <rect class="legend-item" x="50" y="10" width="40" height="40" fill="#BF4045"></rect>
+      <text x="60" y="65" fill="white">-2%</text>
+      </g>
+      <g>
+      <rect class="legend-item" x="90" y="10" width="40" height="40" fill="#8B4441"></rect>
+      <text x="100" y="65" fill="white">-1%</text>
+      </g>
+      <g>
+      <rect class="legend-item" x="130" y="10" width="40" height="40" fill="#414554"></rect>
+      <text x="140" y="65" fill="white">0%</text>
+      </g>
+      <g>
+      <rect class="legend-item" x="170" y="10" width="40" height="40" fill="#35764E"></rect>
+      <text x="180" y="65" fill="white">1%</text>
+      </g>
+      <g>
+      <rect class="legend-item" x="210" y="10" width="40" height="40" fill="#2F9E4F"></rect>
+      <text x="220" y="65" fill="white">2%</text>
+      </g>
+      <g>
+      <rect class="legend-item" x="250" y="10" width="40" height="40" fill="#30CC5A"></rect>
+      <text x="260" y="65" fill="white">3%</text>
+      </g>
+      </svg>
+    
+    <div class="output" id="data-div"></div>
+    <div class="output" id="svg-div"></div>
+    <svg id="canvas"></svg>
+
+    <script type="module" src="./treemap2.js"></script>
+    
+  </body>
+
+</html>
