@@ -35,6 +35,7 @@ The process of development was spread out over time, but it was a bit of a rush 
 
 
 ## Links
-Link to video: 
+Link to video: https://cmu.zoom.us/rec/share/vWeypKX-lPGP2M6j84wK0ID83F1Zst-qGgXU5-4pHJ7Q3_HwKCo8kIryz-q9sXAv.2Y8cXnXV0AyynL71
+PASSWORD: Q6y*!z?k
 
-Link to report:
+Link to report:https://github.com/YiHanna/05499-Stock-Final-Project/blob/main/report.md.
